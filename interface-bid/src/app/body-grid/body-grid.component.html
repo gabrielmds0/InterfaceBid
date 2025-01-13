@@ -1,1 +1,12 @@
-<p>body-grid works!</p>
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 h-screen"
+  style="grid-auto-rows: calc(100vh / 4)"
+>
+  <app-card
+    *ngFor="let auction of displayedAuctions"
+    [title]="auction.title"
+    [description]="auction.description"
+    [imageUrl]="auction.imageUrl"
+  >
+  </app-card>
+</div>
