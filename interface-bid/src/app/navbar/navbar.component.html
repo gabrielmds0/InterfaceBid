@@ -33,24 +33,52 @@
     </a>
 
     <!-- Filtros -->
-    <div role="button" class="flex items-center gap-4 p-3 rounded-lg cursor-pointer hover:bg-gray-100 transition">
-      <div class="w-6 h-6">
-        <!-- Keep the original SVG here -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="4" y1="21" x2="4" y2="14"></line>
-          <line x1="4" y1="10" x2="4" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="12"></line>
-          <line x1="12" y1="8" x2="12" y2="3"></line>
-          <line x1="20" y1="21" x2="20" y2="16"></line>
-          <line x1="20" y1="12" x2="20" y2="3"></line>
-          <line x1="1" y1="14" x2="7" y2="14"></line>
-          <line x1="9" y1="8" x2="15" y2="8"></line>
-          <line x1="17" y1="16" x2="23" y2="16"></line>
-        </svg>
-      </div>
-      <span class="text-base text-gray-700">Filtros</span>
-    </div>
+    <!-- Filter Button -->
+<div
+(click)="toggleFilters()"
+role="button"
+class="flex items-center gap-4 p-3 rounded-lg cursor-pointer hover:bg-gray-100 transition"
+>
+<div class="w-6 h-6">
+  <!-- SVG Icon -->
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000"
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="4" y1="21" x2="4" y2="14"></line>
+    <line x1="4" y1="10" x2="4" y2="3"></line>
+    <line x1="12" y1="21" x2="12" y2="12"></line>
+    <line x1="12" y1="8" x2="12" y2="3"></line>
+    <line x1="20" y1="21" x2="20" y2="16"></line>
+    <line x1="20" y1="12" x2="20" y2="3"></line>
+    <line x1="1" y1="14" x2="7" y2="14"></line>
+    <line x1="9" y1="8" x2="15" y2="8"></line>
+    <line x1="17" y1="16" x2="23" y2="16"></line>
+  </svg>
+</div>
+<span class="text-base text-gray-700">Filtros</span>
+</div>
+
+<!-- Dropdown Filter List -->
+<div *ngIf="showFilters" class="mt-2 ml-8 p-2 bg-gray-100 rounded shadow">
+<ul>
+  <li *ngFor="let filter of filters" class="py-1 text-sm text-gray-700">
+    <label class="flex items-center gap-2 cursor-pointer">
+      <input
+        type="checkbox"
+        [(ngModel)]="filter.selected"
+        class="cursor-pointer"
+      />
+      {{ filter.name }}
+    </label>
+  </li>
+</ul>
+<button
+  (click)="logSelectedFilters()"
+  class="mt-3 px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700"
+>
+  Apply Filters
+</button>
+</div>
+
 
     <!-- Mapa Interativo -->
     <a routerLink="/mapa" class="text-base text-gray-700"><div role="button" class="flex items-center gap-4 p-3 rounded-lg cursor-pointer hover:bg-gray-100 transition">
