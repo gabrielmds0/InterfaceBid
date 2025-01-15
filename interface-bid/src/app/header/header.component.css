@@ -5,7 +5,7 @@
     left: 0;
     width: 100%;
     display: flex;
-    justify-content:space-around; /* Space between title/logo and buttons */
+    justify-content:space-between; /* Space between title/logo and buttons */
     align-items: center;
     padding: 1rem 2rem;
     background-color: #f2f0ef;
@@ -34,10 +34,16 @@
     white-space: nowrap;
 }
 
+
 /* Auth Buttons Container */
 .auth-buttons {
     display: flex;
-    gap: 1rem; /* Space between buttons */
+    gap: 2rem; /* Space between buttons */
+}
+
+.desktop-buttons{
+    display: flex;
+    gap: 10px;
 }
 
 /* Buttons */
