@@ -3,9 +3,17 @@
     <img src="assets/images/Logo.png" alt="Logo" class="logo" />
     <h1 class="title">SmartBid</h1>
   </div>
-  <div class="auth-buttons">
+  <nav class="desktop-buttons">
     <button class="auth-button login-button" routerLink="/login">Entrar</button>
     <button class="auth-button register-button" routerLink="/register">Cadastre-se</button>
-    <router-outlet></router-outlet>
+  </nav>
+  <div class="mobile-menu">
+    <button class="menu-button" (click)="toggleMenu()">
+      ☰
+    </button>
+    <div class="dropdown-menu" [class.show]="menuOpen">
+      <a routerLink="/login" class="dropdown-item">Entrar</a>
+      <a routerLink="/register" class="dropdown-item">Cadastre-se</a>
+    </div>
   </div>
 </header>

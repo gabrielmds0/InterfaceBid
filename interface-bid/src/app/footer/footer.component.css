@@ -80,6 +80,7 @@ body > *:not(.footer) {
     color: #b3b3b3;
     width: 100%; /* Ensure full width */
     box-sizing: border-box;
+    margin-top: 7px;
 }
 
 
