@@ -1,0 +1,341 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #f2f0ef;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0; /* Remove padding from the body tag */
+    background-color: #f2f0ef;
+    box-sizing: border-box;  /* Reserve space equal to header height */
+}
+
+.main {
+    padding-top: 160px; /* Matches the fixed height of the header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f0ef;
+}
+
+#value {
+    text-align: center;
+    font-size: 50px;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 20px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#catch {
+    font-size: 20px;
+    font-weight: 400;
+    color: rgb(63, 62, 62);
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.buttons{
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.cta {
+    border: 10px solid rgb(5, 87, 75);
+    border-radius: 27px;
+    background-color: rgba(5, 87, 75);
+    color: aliceblue;
+    padding: 10px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.cta:hover {
+    border: 10px solid rgb(32, 124, 96);
+    border-radius: 20px;
+    background-color: rgb(32, 124, 96);
+    color: black;
+}
+
+.cta2 {
+    border: 3px solid  rgb(32, 124, 96);/* Inverted color for the border */
+    border-radius: 15px;
+    background-color: aliceblue; /* Inverted background color */
+    color: rgb(5, 87, 75); /* Inverted text color */
+    padding: 10px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.cta2:hover {
+    border: 10px solid rgba(5, 87, 75);; /* Inverted hover border color */
+    border-radius: 20px;
+    background-color: rgba(5, 87, 75);; /* Inverted hover background color */
+    color: aliceblue; /* Inverted hover text color */
+}
+
+
+
+
+/* Card container styling */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #f2f0ef;
+    align-items: flex-end;
+}
+
+/* General card styling */
+.card {
+    
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 40px; 
+
+}
+
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* Card text styling */
+
+
+
+
+/* Specific card styles */
+.card:nth-child(2) {
+    background: rgb(5, 87, 75);
+    width: 250px;
+    height: 300px;
+}
+
+.card:nth-child(2) h2 {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 80px;
+}
+
+
+.card:nth-child(3) {
+    background: #fff;
+    width: 300px;
+}
+
+.card:nth-child(3) h2 {
+    color: #000000;
+    font-size: 22px;
+    font-weight: 400;
+    margin-top: 60px;
+}
+
+.card:nth-child(4) {
+    background: none;
+    position: relative;
+    width: 250px;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:nth-child(4) .card-image-overlay {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.card-container .card:nth-child(1) {
+    height: 400px;
+    width: 250px;
+    margin-top: 0;
+}
+
+.card-container .card:last-child {
+    background: #142f32;
+    width: 250px;
+    height: 400px;
+    margin-top: 1rem;
+}
+
+.card-icon {
+    position: absolute;
+    top: 20px; /* Ajusta a posição vertical */
+    left: 35%; /* Ajusta a posição horizontal */
+    width: 70px; /* Tamanho do ícone */
+    height: 70px; /* Tamanho do ícone */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-icon2 {
+    position: absolute;
+    top: 20px; /* Ajusta a posição vertical */
+    left: 35%; /* Ajusta a posição horizontal */
+    width: 70px; /* Tamanho do ícone */
+    height: 70px; /* Tamanho do ícone */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: #000000;
+}
+
+
+.card-icon2 svg {
+    width: 100%;
+    height: 100%;
+    fill: #fff;
+}
+
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px; /* Spacing between icons */
+    margin: 10px auto; /* Adjust vertical position */
+    width: max-content; /* Ensure grid doesn't stretch */
+    position: absolute;
+    top: 30px; /* Moves icons closer to the top of the card */
+    left: 50%;
+    transform: translateX(-50%); /* Center-align the grid */
+}
+
+.icon {
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+
+}
+
+
+
+
+
+
+.card:last-child h2 {
+    font-weight: 300;
+    margin-top: 280px;
+    color: #fff;
+    font-size: 20px;
+}
+
+/* Responsive Design */
+
+/* Tablet and Medium Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    #value {
+        font-size: 40px;
+        width: 90%;
+    }
+
+    .cta {
+        font-size: medium;
+        padding: 8px;
+    }
+
+    .card-container {
+        gap: 1.5rem;
+        justify-content: center;
+    }
+
+    .card {
+        width: 180px;
+        height: 220px;
+    }
+
+    .card:nth-child(2),
+    .card:nth-child(4) {
+        width: 200px;
+        height: 250px;
+    }
+
+    .card-container .card:nth-child(1) {
+        margin-top: 1rem;
+    }
+
+    .card h2 {
+        font-size: 1.6rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
+}
+
+/* Phones and Small Devices (max-width: 480px) */
+@media (max-width: 480px) {
+
+    .main{
+        margin-top: -150px;
+        height: 100vh;
+    }
+
+    #value {
+        margin-top: 0px;
+        font-size: 30px;
+        width: 100%;
+    }
+
+    #catch {
+        font-size: 18px;
+        margin-top: 15px;
+    }
+
+    .cta {
+        font-size: small;
+        padding: 6px;
+        
+    }
+
+    .card-container {
+        display: none; /* Hide the card container on small devices */
+    }
+}

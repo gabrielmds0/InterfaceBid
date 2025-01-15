@@ -1,16 +1,28 @@
 import { Routes } from '@angular/router';
-import { VeiculosComponent } from './veiculos/veiculos.component';  // Ensure the component is imported
-import { BodyGridComponent } from './body-grid/body-grid.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { VeiculosComponent } from './veiculos/veiculos.component';
 import { MapaComponent } from './mapa/mapa.component';
 import { ImoveisComponent } from './imoveis/imoveis.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', component: BodyGridComponent },  // Default route shows BodyGrid
-  { path: 'veiculos', component: VeiculosComponent },  // Add the route for 'veiculos'
-  { path: 'mapa', component: MapaComponent },  // Add the route for 'mapa'
-  { path: 'imoveis', component: ImoveisComponent },  // Add the route for 'imvopeis'
-  {path: 'profile', component: ProfileComponent}
-
+  { path: '', component: HomeComponent }, // Landing Page
+  { path: 'login', component: LoginComponent }, // Login Page
+  { path: 'register', component: RegisterComponent }, // Register Page
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard], // Protect with AuthGuard
+    children: [
+      { path: 'veiculos', component: VeiculosComponent },
+      { path: 'mapa', component: MapaComponent },
+      { path: 'imoveis', component: ImoveisComponent },
+      { path: 'profile', component: ProfileComponent },
+    ],
+  },
+  { path: '**', redirectTo: '' }, // Redirect unknown routes to landing page
 ];

@@ -1,0 +1,45 @@
+<section class="section">
+  <h1>Junte-se à Lista de Espera</h1>
+  <p>Preencha o formulário abaixo para garantir sua vaga. Entraremos em contato com mais detalhes!</p>
+
+  <form class="waitlist-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="fullname">Nome Completo</label>
+      <input 
+        type="text" 
+        id="fullname" 
+        name="fullname" 
+        formControlName="fullname" 
+        placeholder="Digite seu nome completo" 
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Telefone</label>
+      <input 
+        type="tel" 
+        id="phone" 
+        name="phone" 
+        formControlName="phone" 
+        placeholder="Digite seu número de telefone" 
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        formControlName="email" 
+        placeholder="Digite seu email" 
+        required
+      />
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Inscreva-se</button>
+  </form>
+</section>
