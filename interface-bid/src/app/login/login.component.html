@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="max-w-md mx-auto mt-10 p-6 bg-white shadow rounded">
+    <h2 class="text-2xl font-semibold mb-4">Login</h2>
+    <form (submit)="login()">
+        <input
+        type="text"
+        [(ngModel)]="username"
+        name="username"
+        placeholder="Username"
+        class="w-full p-2 mb-3 border rounded"
+        required
+      />
+      
+      <input
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Password"
+        class="w-full p-2 mb-3 border rounded"
+        required
+      />
+      <button
+        type="submit"
+        class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+      >
+        Login
+      </button>
+      <p *ngIf="errorMessage" class="text-red-600 mt-3">{{ errorMessage }}</p>
+    </form>
+    <p class="mt-4">
+      Don't have an account?
+      <a routerLink="/register" class="text-blue-600">Register</a>
+    </p>
+  </div>

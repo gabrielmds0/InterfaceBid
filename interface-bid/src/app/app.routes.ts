@@ -16,13 +16,16 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard], // Protect with AuthGuard
+    canActivate: [AuthGuard], // Protect dashboard
     children: [
+      { path: '', redirectTo: 'profile', pathMatch: 'full' }, // Default child route
       { path: 'veiculos', component: VeiculosComponent },
       { path: 'mapa', component: MapaComponent },
       { path: 'imoveis', component: ImoveisComponent },
       { path: 'profile', component: ProfileComponent },
     ],
   },
+  
+  
   { path: '**', redirectTo: '' }, // Redirect unknown routes to landing page
 ];
