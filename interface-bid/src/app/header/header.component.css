@@ -51,10 +51,10 @@
     padding: 0.5rem 1rem;
     font-size: 16px;
     font-weight: 500;
-    border: 2px solid rgb(5, 87, 75);;
+    border: 2px solid rgb(5, 87, 75);
     border-radius: 5px;
     background-color: transparent;
-    color: rgb(5, 87, 75);;
+    color: rgb(5, 87, 75);
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }

@@ -19,17 +19,24 @@ export class LoginComponent {
   constructor(private router: Router, private storageService: StorageService) {}
 
   login() {
-    const mockUsername = 'teste';
-    const mockPassword = 'teste';
-
     if (!this.username || !this.password) {
       this.errorMessage = 'Username and password are required.';
-    } else if (this.username === mockUsername && this.password === mockPassword) {
+      return;
+    }
+
+    const storedUsers = this.storageService.getItem('users');
+    const users = storedUsers ? JSON.parse(storedUsers) : [];
+
+    // Verificar se as credenciais correspondem a algum usuário
+    const user = users.find(
+      (user: any) => user.username === this.username && user.password === this.password
+    );
+
+    if (user) {
       this.errorMessage = '';
       console.log('Login successful!');
-
       this.storageService.setItem('isLoggedIn', 'true');
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/dashboard']); // Redireciona para o dashboard após o login
     } else {
       this.errorMessage = 'Invalid username or password.';
     }
