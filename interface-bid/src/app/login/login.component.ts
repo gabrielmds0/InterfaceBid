@@ -1,42 +1,37 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { StorageService } from '../services/storage.service';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, RouterModule, CommonModule], // Add FormsModule here
+  imports:[FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  username: string = '';
-  password: string = '';
-  errorMessage: string = '';
+  username = '';
+  password = '';
+  errorMessage = '';
 
-  constructor(private router: Router) {} // Inject the Router
-
+  constructor(private router: Router, private storageService: StorageService) {}
 
   login() {
     const mockUsername = 'teste';
     const mockPassword = 'teste';
-  
+
     if (!this.username || !this.password) {
       this.errorMessage = 'Username and password are required.';
     } else if (this.username === mockUsername && this.password === mockPassword) {
       this.errorMessage = '';
       console.log('Login successful!');
-  
-      // Save authentication status in localStorage
-      localStorage.setItem('isLoggedIn', 'true');
-  
-      // Redirect to dashboard
+
+      this.storageService.setItem('isLoggedIn', 'true');
       this.router.navigate(['/dashboard']);
     } else {
       this.errorMessage = 'Invalid username or password.';
     }
   }
-  
-  
 }

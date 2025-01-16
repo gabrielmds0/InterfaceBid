@@ -10,22 +10,20 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent }, // Landing Page
-  { path: 'login', component: LoginComponent }, // Login Page
-  { path: 'register', component: RegisterComponent }, // Register Page
+  { path: '', component: HomeComponent }, // Home page
+  { path: 'login', component: LoginComponent }, // Login page
+  { path: 'register', component: RegisterComponent }, // Register page
   {
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuard], // Protect dashboard
     children: [
-      { path: '', redirectTo: 'profile', pathMatch: 'full' }, // Default child route
+      { path: 'profile', component: ProfileComponent }, // Default child route
       { path: 'veiculos', component: VeiculosComponent },
       { path: 'mapa', component: MapaComponent },
       { path: 'imoveis', component: ImoveisComponent },
       { path: 'profile', component: ProfileComponent },
     ],
   },
-  
-  
-  { path: '**', redirectTo: '' }, // Redirect unknown routes to landing page
+  { path: '**', redirectTo: '' }, // Redirect unknown routes to home
 ];

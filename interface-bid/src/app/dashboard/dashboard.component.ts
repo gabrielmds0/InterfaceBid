@@ -1,32 +1,25 @@
-import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { BodyGridComponent } from '../body-grid/body-grid.component';
-import { VeiculosComponent } from '../veiculos/veiculos.component';
-import { CommonModule } from '@angular/common';
-import { MapaComponent } from '../mapa/mapa.component';
-import { ImoveisComponent } from '../imoveis/imoveis.component';
-import { ProfileComponent } from '../profile/profile.component';
-
-
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [
-      RouterModule, // Import RouterModule
-      RouterOutlet, // Import RouterOutlet
-      NavbarComponent,
-      BodyGridComponent,
-      VeiculosComponent,
-      CommonModule,
-      MapaComponent,
-      ImoveisComponent,
-      ProfileComponent
-    ],
+  imports: [CommonModule, RouterModule, NavbarComponent, BodyGridComponent],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+  isDashboard = false;
 
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    // Update `isDashboard` based on the current route
+    this.router.events.subscribe(() => {
+      this.isDashboard = this.router.url === '/dashboard';
+    });
+  }
 }

@@ -1,13 +1,14 @@
 <div class="flex h-screen">
-    <!-- Navbar -->
-    <aside class="w-64 bg-white shadow-md">
-      <app-navbar></app-navbar>
-    </aside>
-  
-    <!-- Main Content -->
-    <main class="flex-1 bg-gray-50 overflow-y-auto">
-      <!-- Dynamic content based on the route -->
-      <router-outlet></router-outlet>
-    </main>
-  </div>
-  
+  <!-- Navbar -->
+  <aside class="w-64 bg-white shadow-md">
+    <app-navbar></app-navbar>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 bg-gray-50 overflow-y-auto">
+    <!-- Show app-body-grid only on /dashboard -->
+    <app-body-grid *ngIf="isDashboard"></app-body-grid>
+    <!-- Dynamic content based on the route -->
+    <router-outlet></router-outlet>
+  </main>
+</div>
